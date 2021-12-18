@@ -108,12 +108,12 @@ function listaDeputadosAccordion(jsonList) {
         accordion += `      <div class="accordion-body">`;
         accordion += `          <div class="container">`;
         accordion += `              <div class="row">`;
-        accordion += `                  <div class="col-2 d-flex align-items-center images">`;
+        accordion += `                  <div class="col-sm-2 d-flex align-items-center images">`;
         accordion += `                      <img src="${deputado.urlFoto}" onerror="this.src='images/blank-profile.png'" alt="Imagem não disponível" width="114px" height="auto">`;
         accordion += `                  </div>`;
-        accordion += `                  <div id="deputadoDetails${deputado.id}" class="col-4">`;
+        accordion += `                  <div id="deputadoDetails${deputado.id}" class="col-sm-4">`;
         accordion += `                  </div>`;
-        accordion += `                  <div id="deputadoDespesasDetails${deputado.id}" class="col-4">`;
+        accordion += `                  <div id="deputadoDespesasDetails${deputado.id}" class="col-sm-4">`;
         accordion += `                  </div>`;
         accordion += `              </div>`;
         accordion += `          </div>`;
