@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dados Abertos Câmara dos Deputados</title>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="styles/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="container-md mt-2">
+    <div class="navbar row">
+      <div class="col">
+        <img src="images/dados-abertos.png" alt="">
+      </div>
+      <div class="col">
+        <a href="#idcota">COTA</a>
+      </div>
+      <div class="col">
+        <a href="#idverba">VERBA DE GABINETE</a>
+      </div>
+      <div class="col">
+        <a href="#idmoradia">MORADIA</a>
+      </div>
+      <div class="col">
+        <a href="#idremuneracao">REMUNERAÇÃO</a>
+      </div>
+      <div class="col">
+        <a href="#idviagens">VIAGENS</a>
+      </div>
+      <div class="col">
+        <a href="#iddadosabertos">DADOS ABERTOS</a>
+      </div>
+    </div>
+  </div>
+  <div class="container-md  mt-2">
+    <form name="formFiltros" onsubmit="retornaDeputados(event)" class="ms-3 mb-5">
+      <div class="row mt-3">
+        <h1 class="display-6 mt-2"><strong>GASTOS PARLAMENTARES</strong></h1>
+      </div>
+      <div class="row mt-5">
+        <div class="col-4">
+          <label for="Legislaturas">Legislaturas:</label>
+          <select class="form-select form-control" name="Legislatura" id="selectLegislaturas"></select>
+        </div>
+        <div class="col-4">
+          <label for="inputDataInicial">Data Inicial:</label>
+          <input class="form-control" id="dataInicial" name="inputDataInicial" placeholder="Data Inicial" type="date">
+        </div>
+        <div class="col-4">
+          <label for="inputDataFinal">Data Final:</label>
+          <input class="form-control" id="dataFinal" name="inputDataFinal" placeholder="Data Final" type="date">
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-4">
+          <label for="inputNome">Nome do Parlamentar:</label>
+          <input class="form-control" name="inputNome" class="mt-3" placeholder="Nome" type="text" id="nome">
+        </div>
+        <div class="col-4">
+          <label for="inputSigla">Sigla do Partido:</label>
+          <input class="form-control" name="inputSigla" class="mt-3" placeholder="Sigla Partido" type="text" id="sigla">
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="mt-3">
+          <div class="col-4 mt-3">
+            <button type="submit" id="buscarDeputados" class="btn btn-primary btn-lg">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div>
+      <div class="row">
+        <h3 id="textoResultado" class="mt-3 d-flex justify-content-center">Utilize os filtros acima e clique no botão
+          "Buscar" para exibir os dados dos parlamentares.
+        </h3>
+      </div>
+      <div class="row">
+        <div class="accordion" id="accordionDeputados"></div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div id="idcota" class="col">
+        <h1><span class="badge bg-secondary">COTA</span></h1>
+        <h5>A Cota para o Exercício da Atividade Parlamentar (CEAP) custeia as despesas do mandato,
+          como passagens aéreas e conta de celular. Algumas são reembolsadas, como as com os Correios,
+          e outras são pagas por débito automático, como a compra de passagens.
+        </h5>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div id="idverba" class="col">
+        <h1><span class="badge bg-secondary">VERBA DE GABINETE</span></h1>
+        <h5>A Cota para o Exercício da Atividade Parlamentar (CEAP) custeia as despesas do mandato,
+          como passagens aéreas e conta de celular. Algumas são reembolsadas, como as com os Correios,
+          e outras são pagas por débito automático, como a compra de passagens.
+          Nos casos de reembolso, os deputados têm três meses para apresentar os recibos. O valor mensal não utilizado
+          fica acumulado ao longo do ano - isso explica porque em alguns meses o valor gasto pode ser maior que a média
+          mensal.
+        </h5>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div id="idmoradia" class="col">
+        <h1><span class="badge bg-secondary">MORADIA</span></h1>
+        <h5>Os deputados federais têm direito a receber um auxílio-moradia no valor de R$ 4.253,00 quando não ocupam um
+          dos 432 apartamentos funcionais que a Câmara tem em Brasília.
+          O auxílio-moradia pode ser pago diretamente em dinheiro, com desconto do Imposto de Renda na fonte; ou por
+          reembolso, mediante a apresentação de recibo de aluguel ou hotel. O reembolso é isento de Imposto de
+          Renda./h5>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div id="idremuneracao" class="col">
+        <h1><span class="badge bg-secondary">REMUNERAÇÃO</span></h1>
+        <h5>O salário atual de um deputado federal é R$ 33.763,00. A remuneração mensal leva em conta o comparecimento
+          às sessões deliberativas do Plenário. Ausência não justificada leva a desconto no salário.</h5>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div id="idviagens" class="col">
+        <h1><span class="badge bg-secondary">VIAGENS OFICIAIS</span></h1>
+        <h5>O deputado tem direito a receber diárias quando viaja em missão oficial. Nas viagens nacionais, o valor é de
+          R$ 524,00. Nas viagens internacionais, o valor da diária é de US$ 391,00 para países da América do Sul, e de
+          US$ 428,00 para outros países.</h5>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div id="iddadosabertos" class="col">
+        <h1><span class="badge bg-secondary">DADOS ABERTOS</span></h1>
+        <h5>O Dados Abertos da Câmara pode ser utilizado para acompanhar a tramitação e as votações de projetos e
+          pareceres, verificar a atuação e os gastos do deputado que você ajudou a eleger, descobrir os eventos
+          realizados pelas comissões, e muito mais! Acesse <a href="https://dadosabertos.camara.leg.br/">AQUI</a>!</h5>
+      </div>
+    </div>
+    <footer class="mt-5">
+      <div class="row">
+        <div class="mt-3 d-flex justify-content-center">
+          <b class="text-center text-light"> 56ª Legislatura - 3ª Sessão Legislativa Ordinária</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mt-3 ms-5">
+            <p class="text-light">Câmara dos Deputados - Palácio do Congresso Nacional - Praça dos Três
+              Poderes</p>
+            <p class="text-light">Brasília - DF - Brasil - CEP 70160-900</p>
+            <p class="text-light">CNPJ: 00.530.352/0001-59</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mt-3">
+            <p class="text-start text-light">Disque-Câmara: 0800-0-619-619, de 8h às 20h</p>
+            <p class="text-start text-light">Atendimento presencial: de 9h às 19h</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="scripts/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
